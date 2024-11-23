@@ -39,7 +39,7 @@ describe 'RubyRouter' do
       }
       action_controller_params = {
         :"controller" => "parkings",
-        :"action" => "check_out",
+        :"action" => "checkout",
         :params => { :"plate" => "aaa-4444" }
       }
       ruby_router = RubyRouter.new(request).call

@@ -31,6 +31,6 @@ class RubyRouter
   end
 
   def patch_action_controller
-    { :"controller" => path, :"action" => "check_out", :"params" => @params }
+    { :"controller" => path, :"action" => "checkout", :"params" => @params }
   end
 end

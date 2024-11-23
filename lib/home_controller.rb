@@ -4,6 +4,6 @@ class HomeController
   end
 
   def index
-    "Boas vindas ao RubyApi"
+    return { :body => "Boas vindas ao RubyApi", :status => 200 }
   end
 end

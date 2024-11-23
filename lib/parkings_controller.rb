@@ -8,14 +8,18 @@ class ParkingsController
   def create
     parking = Parking.new(parkings_params)
 
-    return parking.to_json
+    return { :body => parking.to_json, :status => 200 }
   end
 
   def checkout
     parking = Parking.find_by(parkings_params)
-    parking.checkout
 
-    return parking.to_json
+    if parking
+      parking.checkout
+      return { :body => parking.to_json, :status => 200 }
+    else
+      return { body: {}, status: 406 }
+    end
   end
 
   private

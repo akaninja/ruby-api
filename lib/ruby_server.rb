@@ -18,15 +18,16 @@ class RubyServer
 
     while @connection = @server.accept
       puts 'Conexão iniciada'
-      # p @connection.readpartial(2048)
       request = RequestParser.new(@connection.readpartial(2048)).parse
       controller_params = RubyRouter.new(request).call
+      controller_response = RubyController.new(controller_params).call
       response = {
         :"headers" => {
           :"content-type" => "application/json; charset=utf-8",
           :"date" => Date.today.to_s, 
         },
-        :"body" =>  RubyController.new(controller_params).call
+        :"status" => controller_response[:status],
+        :"body" => controller_response[:body]
       }
 
       @connection.write(response)

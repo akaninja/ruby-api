@@ -9,10 +9,11 @@ Run `curl` commands in a different terminal window to see it working.
 
 Examples:
 
-`curl 'http://localhost:5678'`
+- `curl 'http://localhost:5678'`
 
+- `curl -d "{\"plate\": aaa-444}" 'http://localhost:5678/parkings'`
 
-`curl -d "{\"plate\": aaa-444}" 'http://localhost:5678/parkings'`
+- `curl -X PUT 'http://localhost:5678/parkings/aaa-445'`
 
 To avoid error `Received HTTP/0.9 when not allowed` use option `--http0.9`
 
